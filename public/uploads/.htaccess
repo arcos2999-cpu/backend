@@ -1,0 +1,5 @@
+# Las fotos de los reportes son archivos estáticos: nunca se ejecuta código aquí.
+Options -Indexes
+<FilesMatch "\.(php|phtml|phar|php[0-9])$">
+    Require all denied
+</FilesMatch>

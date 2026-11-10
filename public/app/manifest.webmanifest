@@ -1,0 +1,28 @@
+{
+  "name": "Buzón BUAP SJC",
+  "short_name": "Buzón SJC",
+  "description": "Quejas y sugerencias de la comunidad BUAP SJC",
+  "lang": "es-MX",
+  "dir": "ltr",
+  "id": "./",
+  "start_url": "./#/inicio",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B4F8A",
+  "theme_color": "#0B4F8A",
+  "categories": ["education", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nuevo reporte",
+      "short_name": "Nuevo",
+      "url": "./#/nuevo",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

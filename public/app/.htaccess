@@ -1,0 +1,18 @@
+# PWA Buzón BUAP SJC: tipos de archivo y caché.
+Options -Indexes
+
+<IfModule mod_mime.c>
+    AddType application/manifest+json .webmanifest
+    AddType text/javascript .js
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Estos archivos deben revisarse siempre para que las actualizaciones lleguen a los teléfonos.
+    <FilesMatch "^(sw\.js|config\.js|index\.html|manifest\.webmanifest)$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+    # Los archivos de assets/ llevan un código en el nombre: nunca cambian.
+    <If "%{REQUEST_URI} =~ m#/assets/#">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </If>
+</IfModule>
