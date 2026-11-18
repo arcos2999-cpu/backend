@@ -22,6 +22,15 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], static function
     $routes->get('auth/me', 'AuthController::me', $auth);
     $routes->get('catalogos', 'CatalogosController::index', $auth);
 
+    // --- Muro institucional (anuncios) ---
+    $routes->get('anuncios', 'AnunciosController::index', $auth);
+    $routes->get('anuncios/(:num)', 'AnunciosController::show/$1', $auth);
+    $routes->post('anuncios/(:num)/(like|guardar|favorito)', 'AnunciosController::reaccion/$1/$2', $auth);
+    $routes->get('anuncios/(:num)/comentarios', 'AnunciosController::comentarios/$1', $auth);
+    $routes->post('anuncios/(:num)/comentarios', 'AnunciosController::comentar/$1', $auth);
+    $routes->delete('comentarios/(:num)', 'AnunciosController::borrarComentario/$1', $auth);
+    $routes->get('actividad', 'AnunciosController::actividad', $auth);
+
     $routes->get('reportes', 'ReportesController::index', $auth);
     $routes->post('reportes', 'ReportesController::create', $auth);
     $routes->get('reportes/(:num)', 'ReportesController::show/$1', $auth);
@@ -36,6 +45,8 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], static function
     $routes->patch('reportes/(:num)/estado', 'ReportesController::estado/$1', $admin);
     $routes->delete('reportes/(:num)', 'ReportesController::delete/$1', $admin);
 
+    $routes->post('anuncios', 'AnunciosController::create', $admin);
+    $routes->delete('anuncios/(:num)', 'AnunciosController::delete/$1', $admin);
     $routes->get('usuarios', 'UsuariosController::index', $admin);
     $routes->patch('usuarios/(:num)/rol', 'UsuariosController::rol/$1', $admin);
     $routes->patch('usuarios/(:num)/activo', 'UsuariosController::activo/$1', $admin);

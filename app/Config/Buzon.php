@@ -54,6 +54,12 @@ class Buzon extends BaseConfig
     /** Carpeta pública (dentro de /public) donde se guardan las fotos. */
     public string $uploadDir = 'uploads/reportes';
 
+    /** Carpeta pública (dentro de /public) donde se guardan las imágenes de los anuncios. */
+    public string $uploadDirAnuncios = 'uploads/anuncios';
+
+    /** Máximo de comentarios que un usuario puede escribir por minuto (anti-spam). */
+    public int $maxCommentsPerMinute = 10;
+
     /** Peticiones permitidas por minuto y por IP en login/registro. */
     public int $authAttemptsPerMinute = 10;
 
